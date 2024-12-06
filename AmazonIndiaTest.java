@@ -29,6 +29,7 @@ public class AmazonIndiaTest {
         driver.get("https://www.amazon.in/");
     }
 
+
     @Test
     public void testAmazonSearchAndAddToCart() throws Throwable {
         // Search for Wrist Watches 
@@ -45,6 +46,9 @@ public class AmazonIndiaTest {
         WebElement fastrackFilter = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
                 "//a[@aria-label='Apply the filter Fastrack to narrow results']//i[@class='a-icon a-icon-checkbox']")));
         fastrackFilter.click();
+        // scroll
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,5500)");
 
         // Navigate to 2nd page of results
         WebElement nextPageButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='2']")));
